@@ -42,14 +42,15 @@
                                            "compile" ["with-profile" "production" "cljsbuild" "once" "production"]]}
              :production {}
              :dev        {:source-paths ["src/dev" "src/main" "src/test" "src/cards"]
-
+                          
                           :jvm-opts     ["-XX:-OmitStackTraceInFastThrow" "-client" "-XX:+TieredCompilation" "-XX:TieredStopAtLevel=1"
                                          "-Xmx1g" "-XX:+UseConcMarkSweepGC" "-XX:+CMSClassUnloadingEnabled" "-Xverify:none"]
 
                           :doo          {:build "automated-tests"
                                          :paths {:karma "node_modules/karma/bin/karma"}}
 
-                          :figwheel     {:css-dirs ["resources/public/css"]}
+                          :figwheel     {:css-dirs ["resources/public/css"]
+                                         :server-port 8032}
 
                           :test-refresh {:report       fulcro-spec.reporters.terminal/fulcro-report
                                          :with-repl    true
